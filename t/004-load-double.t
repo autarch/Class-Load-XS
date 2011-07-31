@@ -2,6 +2,7 @@ use strict;
 use warnings;
 
 use Test::More tests => 2;
+BEGIN { $ENV{CLASS_LOAD_IMPLEMENTATION} = 'XS'; }
 use Class::Load ':all';
 use Test::Fatal;
 

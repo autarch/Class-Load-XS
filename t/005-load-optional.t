@@ -4,6 +4,7 @@ use warnings;
 
 use Test::More tests => 8;
 use Test::Fatal;
+BEGIN { $ENV{CLASS_LOAD_IMPLEMENTATION} = 'XS'; }
 use Class::Load qw( :all );
 use lib 't/lib';
 

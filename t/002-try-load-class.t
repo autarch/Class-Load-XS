@@ -2,6 +2,7 @@
 use strict;
 use warnings;
 use Test::More tests => 18;
+BEGIN { $ENV{CLASS_LOAD_IMPLEMENTATION} = 'XS'; }
 use Class::Load ':all';
 use lib 't/lib';
 

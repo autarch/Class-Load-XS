@@ -3,6 +3,8 @@ use strict;
 use warnings;
 use Test::More tests => 17;
 
+BEGIN { $ENV{CLASS_LOAD_IMPLEMENTATION} = 'XS'; }
+
 use Class::Load 'is_class_loaded';
 use lib 't/lib';
 
