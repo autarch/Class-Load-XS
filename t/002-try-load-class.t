@@ -1,10 +1,9 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
-use Test::More tests => 18;
-BEGIN { $ENV{CLASS_LOAD_IMPLEMENTATION} = 'XS'; }
-use Class::Load ':all';
+use Test::More 0.88;
 use lib 't/lib';
+use Test::Class::Load ':all';
 
 ok(try_load_class('Class::Load::OK'), "loaded class OK");
 is($Class::Load::ERROR, undef);
@@ -37,4 +36,4 @@ ok(try_load_class('Class::Load::VersionCheck', { -version => 41 }));
 ok(try_load_class('Class::Load::VersionCheck2', { -version => 41 }));
 ok(!try_load_class('Class::Load::VersionCheck2', { -version => 43 }));
 
-
+done_testing;

@@ -1,9 +1,10 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
-use Test::More tests => 1;
+use Test::More 0.88;
 
-BEGIN { $ENV{CLASS_LOAD_IMPLEMENTATION} = 'XS'; }
+use lib 't/lib';
 
-use_ok 'Class::Load';
+use_ok 'Test::Class::Load';
 
+done_testing;

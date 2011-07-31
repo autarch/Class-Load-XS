@@ -1,12 +1,10 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
-use Test::More tests => 17;
+use Test::More 0.88;
 
-BEGIN { $ENV{CLASS_LOAD_IMPLEMENTATION} = 'XS'; }
-
-use Class::Load 'is_class_loaded';
 use lib 't/lib';
+use Test::Class::Load 'is_class_loaded';
 
 # basic {{{
 ok(is_class_loaded('Class::Load'), "Class::Load is loaded");
@@ -20,12 +18,17 @@ do {
 };
 ok(is_class_loaded('Class::Load::WithISA'), "class that defines \@ISA is loaded");
 # }}}
-# $ISA (yes, sadly) {{{
+# $ISA (yes, sadly, but only with the PP version) {{{
 do {
     package Class::Load::WithScalarISA;
     our $ISA = 'Class::Load';
 };
-ok(is_class_loaded('Class::Load::WithScalarISA'), "class that defines \$ISA is loaded");
+if ($Class::Load::IMPLEMENTATION eq 'PP') {
+    ok(is_class_loaded('Class::Load::WithScalarISA'), "class that defines \$ISA is loaded");
+}
+else {
+    ok(!is_class_loaded('Class::Load::WithScalarISA'), "class that defines \$ISA is not loaded");
+}
 # }}}
 # $VERSION (yes) {{{
 do {
@@ -99,3 +102,4 @@ ok(!is_class_loaded('Class::Load::VersionCheck', {-version => 43}),
 ok(is_class_loaded('Class::Load::VersionCheck', {-version => 41}),
    'Class::Load::VersionCheck has been loaded and the version check passed');
 
+done_testing;
