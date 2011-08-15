@@ -15,3 +15,13 @@ XSLoader::load(
 
 # ABSTRACT: XS implementation of parts of Class::Load
 
+__END__
+
+=head1 SYNOPSIS
+
+    use Class::Load;
+
+=head1 DESCRIPTION
+
+This module provides an XS implementation for portions of L<Class::Load>. See
+L<Class::Load> for API details.
