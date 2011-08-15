@@ -122,10 +122,17 @@ is_class_loaded(klass, options=NULL)
             SV *version_sv;
             if (version && HeVAL(version) && (version_sv = GvSV(HeVAL(version)))) {
                 if (SvROK(version_sv)) {
-                    SV *version_sv_ref = SvRV(version_sv);
-
-                    if (SvOK(version_sv_ref)) {
+                    /* Any object is good enough, though this is most likely
+                       going to be a version object */
+                    if (sv_isobject(version_sv)) {
                         XSRETURN_YES;
+                    }
+                    else {
+                        SV *version_sv_ref = SvRV(version_sv);
+
+                        if (SvOK(version_sv_ref)) {
+                            XSRETURN_YES;
+                        }
                     }
                 }
                 else if (SvOK(version_sv)) {
