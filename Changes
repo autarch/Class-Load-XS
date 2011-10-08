@@ -1,5 +1,8 @@
 {{$NEXT}}
 
+- Require the latest Class::Load (0.11).
+
+
 0.01     2011-08-15
 
 - First release upon an unsuspecting world.
