@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+0.03     2011-11-18
+
 - Explicitly include Test::Fatal as a test prereq. Reported by W Phillip
   Moore. RT #72493.
 
