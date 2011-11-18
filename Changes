@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+- Explicitly include Test::Fatal as a test prereq. Reported by W Phillip
+  Moore. RT #72493.
+
+
 0.02     2011-10-08
 
 - Require the latest Class::Load (0.11).
