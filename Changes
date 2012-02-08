@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+- Some small test changes for the latest Module::Implementation and
+  Class::Load. There is no need to upgade if you have 0.03 installed.
+
+
 0.03     2011-11-18
 
 - Explicitly include Test::Fatal as a test prereq. Reported by W Phillip
