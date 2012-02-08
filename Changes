@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+0.04     2012-02-08
+
 - Some small test changes for the latest Module::Implementation and
   Class::Load. There is no need to upgade if you have 0.03 installed.
 
