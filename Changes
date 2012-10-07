@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+- Require Class::Load 0.20. This keeps the tests in sync, and this module
+  needed at least 0.11 anyway. Reported by Father Chrysostomos. RT #80002.
+
+
 0.04     2012-02-08
 
 - Some small test changes for the latest Module::Implementation and

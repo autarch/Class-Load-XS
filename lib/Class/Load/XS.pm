@@ -3,6 +3,8 @@ package Class::Load::XS;
 use strict;
 use warnings;
 
+use Class::Load 0.20;
+
 use XSLoader;
 XSLoader::load(
     __PACKAGE__,
