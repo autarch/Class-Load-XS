@@ -119,9 +119,10 @@ is_class_loaded(klass, options=NULL)
 
         if (hv_exists_ent (stash, KEY_FOR_VERSION, HASH_FOR_VERSION)) {
             HE *version = hv_fetch_ent(stash, KEY_FOR_VERSION, 0, HASH_FOR_VERSION);
-            SV *version_sv;
-            if (version && HeVAL(version) && (version_sv = GvSV(HeVAL(version)))) {
-                if (SvROK(version_sv)) {
+            if (version) {
+                SV *value = HeVAL(version);
+                SV *version_sv;
+                if (value && isGV(value) && (version_sv = GvSV(value)) && SvROK(version_sv)) {
                     /* Any object is good enough, though this is most likely
                        going to be a version object */
                     if (sv_isobject(version_sv)) {
@@ -143,8 +144,11 @@ is_class_loaded(klass, options=NULL)
 
         if (hv_exists_ent (stash, KEY_FOR_ISA, HASH_FOR_ISA)) {
             HE *isa = hv_fetch_ent(stash, KEY_FOR_ISA, 0, HASH_FOR_ISA);
-            if (isa && HeVAL(isa) && GvAV(HeVAL(isa)) && av_len(GvAV(HeVAL(isa))) != -1) {
-                XSRETURN_YES;
+            if (isa) {
+               SV *value = HeVAL(isa);
+               if (value && isGV(value) && GvAV(value) && av_len(GvAV(value)) != -1) {
+                   XSRETURN_YES;
+               }
             }
         }
 
