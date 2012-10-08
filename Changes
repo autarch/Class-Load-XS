@@ -1,7 +1,8 @@
 {{$NEXT}}
 
-- Require Class::Load 0.20. This keeps the tests in sync, and this module
-  needed at least 0.11 anyway. Reported by Father Chrysostomos. RT #80002.
+- Require Class::Load 0.20 in the code (not just the distro metadata). This
+  keeps the tests in sync, and this module needed at least 0.11
+  anyway. Reported by Father Chrysostomos. RT #80002.
 
 - Weird classes with either an ISA or VERSION constant (who does that?) would
   cause the XS to blow up badly. Reported by Father Chrysostomos. RT #79998.
