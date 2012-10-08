@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+0.06     2012-10-08
+
 - Fixed some broken logic that lead to a segfault from the
   014-weird-constants.t test on some Perls (but unfortunately not the one I
   test with by default). Reported by Chisel Wright (and several other
