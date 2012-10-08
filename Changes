@@ -1,5 +1,10 @@
 {{$NEXT}}
 
+- Fixed some broken logic that lead to a segfault from the
+  014-weird-constants.t test on some Perls (but unfortunately not the one I
+  test with by default).
+
+
 0.05     2012-10-07
 
 - Require Class::Load 0.20 in the code (not just the distro metadata). This
